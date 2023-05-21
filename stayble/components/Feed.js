@@ -34,6 +34,21 @@ export default function Feed() {
                     </Typography>
                 </CardContent>
             </Card>
+            <Card>
+                <CardMedia
+                    component="img"
+                    image="images/horse3.jpg"
+                    title="horse"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        Horse2
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        This is horse 3
+                    </Typography>
+                </CardContent>
+            </Card>
         </Stack >
     )
 }
