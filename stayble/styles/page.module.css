@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 25px;
+}

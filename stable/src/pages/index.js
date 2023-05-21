@@ -3,19 +3,16 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar';
-import NavBar from './components/Navbar'
+import NavBar from '../components/Navbar'
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
-import { Button } from '@mui/material';
 
 import "./page.module.css"
 
 export default function Home() {
   return (
-
     <main className={styles.main}>
       <AppBar position="relative">
         <Toolbar>
