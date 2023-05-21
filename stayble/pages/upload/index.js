@@ -1,4 +1,47 @@
-
+import useState from 'react';
+import storage from "../../firebaseConfig.js";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 export default function uploadPage() {
-    return <div>Upload</div>;
+    const [file, setFile] = useState("");
+    const [percent, setPercent] = useState(0);
+
+    function uploadHandler() {
+        if (!file) {
+            alert("Please choose at least 3 photos fo horses!");
+        }
+
+        const storageRef = ref(storage, `/files/${file.name}`)
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const percent = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+
+                // update progress
+                setPercent(percent);
+            },
+            (err) => console.log(err),
+            () => {
+                // download url
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    console.log(url);
+                });
+            }
+        );
+    }
+
+    // Handles input change event and updates state
+    function handleChange(event) {
+        setFile(event.target.files[0]);
+    }
+
+    return (
+        <div>
+            <input type="file" accept="image/*" onChange={uploadHandler} />
+            <button>Upload to Stable!</button>
+        </div>
+    );
 }

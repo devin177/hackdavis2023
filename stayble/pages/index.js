@@ -4,6 +4,7 @@ import * as React from 'react'
 import TitleBar from '@/components/TitleBar'
 import Feed from '@/components/Feed'
 import SideBar from '@/components/SideBar';
+import axios from 'axios';
 
 export default function Home() {
   return (
