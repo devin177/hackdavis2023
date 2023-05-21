@@ -1,10 +1,18 @@
 .main {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }
 
 .feed {
   display: flex;
   flex-direction: column;
   padding-bottom: 25px;
+}
+
+.view {
+  display: flex;
+  flex-direction: row;
 }

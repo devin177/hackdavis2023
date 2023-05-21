@@ -1,13 +1,12 @@
-module.exports = {
-  reactStrictMode: true,
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.node = {
-        fs: 'empty'
-      }
-    }
+/** @type {import('next').NextConfig} */
+const dotenvLoad = require('dotenv-load');
+const nextEnv = require('next-env');
+dotenvLoad();
 
-    return config
-  }
-}
+const withNextEnv = nextEnv();
+
+const nextConfig = withNextEnv({
+  reactStrictMode: true,
+})
+
+module.exports = nextConfig
